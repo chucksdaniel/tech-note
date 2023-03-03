@@ -8,7 +8,11 @@ const NotesList = () => {
 		isSuccess,
 		isError,
 		error,
-	} = useGetNotesQuery();
+	} = useGetNotesQuery(undefined, {
+		pollingInterval: 15000,
+		refetchOnFocus: true,
+		refetchOnMountOrArgChange: true,
+	}); // Nice feature to add when we have more than one person working on a data
 
 	let content;
 
